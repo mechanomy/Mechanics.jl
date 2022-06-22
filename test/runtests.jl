@@ -1,6 +1,6 @@
 using Mechanics
 using Test
+using Unitful, Unitful.DefaultSymbols
 
-@testset "Mechanics.jl" begin
-    # Write your tests here.
-end
+include("testAreaMoments.jl")
+include("testEulerBeam.jl")

@@ -3,6 +3,10 @@ uuid = "d980238a-42cd-4560-857f-f5458fd6ce3b"
 authors = ["Mechanomy LLC"]
 version = "0.1.0"
 
+[deps]
+RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
+Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+
 [compat]
 julia = "1"
 
