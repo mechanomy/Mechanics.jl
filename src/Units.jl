@@ -2,6 +2,8 @@
 
 
 # SI-related
+Length = Unitful.Length
+Force = Unitful.Force
 @derived_dimension Radian dimension(u"rad")
 @derived_dimension Degree dimension(2*pi)
 @derived_dimension Torque dimension(u"N*m")
@@ -15,5 +17,6 @@
 # @unit deg "deg" Degree 360/2*pi false
 Angle{T} = Union{Quantity{T,NoDims,typeof(u"rad")}, Quantity{T,NoDims,typeof(u"°")}} where T
 
+#introduce a strictly-positive Real? then make unions for Radius, Length, ..?
 
 # Imperial

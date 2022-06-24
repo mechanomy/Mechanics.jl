@@ -22,10 +22,11 @@ Instead, access functions by:
 `Mechanics.areaMomentCircle( .. )`
 `Mechanics.tipDeflection( .. )`
 
-See [runtests.jl](test/runtests.jl) and sub-test files for basic usage of various functions and structures.
+See [test*.jl](test/) for basic usage of various functions and structures.
 
 ## References
 > "Advanced Mechanics of Materials", Robert D. Cook and Warren C. Young, 2nd Ed, 1999, [0-13-396961-4](https://www.pearson.com/store/p/advanced-mechanics-of-materials/P100000832234/9780133969610)
+> "Mechanics of Materials", Ferdinand P. Beer, E. Russell Johnson, John T. DeWolf, 4th Ed, 2006, [0-07-298090-7](https://www.google.com/search?tbm=bks&q=0-07-298090-7)
 
 
 ## Other Mechanics-related Packages
