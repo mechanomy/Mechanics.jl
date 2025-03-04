@@ -17,7 +17,6 @@ function fixedFreeTipDeflection(; P::Force=0N, M::Torque=0u"N*m", q::LinearForce
   return M*L^2/(2*E*I) + P*L^3/(3*E*I) + q*L^4/(8*E*I)
 end
 
-
 # function fixedFreeTipDeflection_viz()
 # @series begin
 #  draw unloaded beam
@@ -38,7 +37,6 @@ Returns the deflection of the deflected tip from horizontal from applying `P` at
 `P` is assumed to be applied perpendicular to the beam length `L`.
 > Beer&Johnson Appendix D.3
 """
-
 function fixedFreeDeflectionForce(; E::ElasticModulus, I::MomentOfInertia, P::Force=0N, L::Length, xP::Length=L  ) :: Length
   # if L <= 0 ..I'd rather shove this into the type...
   # end

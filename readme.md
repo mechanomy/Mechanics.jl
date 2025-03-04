@@ -14,7 +14,7 @@ This module is very much work-in-progress, at present developed only according t
 Pull-requests welcome, but given the immaturity not really anticipated.
 
 ## Install
-`use Pkg; Pkg.add("git@github.com:mechanomy/Mechanics.jl.git")`
+`using Pkg; Pkg.add(url="https://github.com/mechanomy/Mechanics.jl.git#main")`
 
 ## Use
 Most functions are not exported, to avoid cluttering your namespace.
@@ -25,6 +25,7 @@ Instead, access functions by:
 See [test*.jl](test/) for basic usage of various functions and structures.
 
 ## References
+> "Roark's Formulas for Stress and Strain", Warren C. Young and Richard G. Budynas, 7th Ed, 2002, [0-07-072542-X](https://archive.org/details/RoarksFormulasForStressAndStrain7thEd/page/n227/mode/2up)
 > "Advanced Mechanics of Materials", Robert D. Cook and Warren C. Young, 2nd Ed, 1999, [0-13-396961-4](https://www.pearson.com/store/p/advanced-mechanics-of-materials/P100000832234/9780133969610)
 > "Mechanics of Materials", Ferdinand P. Beer, E. Russell Johnson, John T. DeWolf, 4th Ed, 2006, [0-07-298090-7](https://www.google.com/search?tbm=bks&q=0-07-298090-7)
 
