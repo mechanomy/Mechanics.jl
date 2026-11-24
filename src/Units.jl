@@ -1,23 +1,23 @@
-# Add conventional unit definitions
+# Unit definitions and aliases for Mechanics.jl, built on UnitTypes v3
 
+# Type aliases for common physical dimensions
+const Length = AbstractLength
+const Force = AbstractForce
+const Torque = AbstractTorque
+const Angle = AbstractAngle
+const ElasticModulus = AbstractPressure
+const ShearModulus = AbstractPressure
 
-# SI-related
-Length = Unitful.Length
-Force = Unitful.Force
-@derived_dimension Radian dimension(u"rad")
-@derived_dimension Degree dimension(2*pi)
-@derived_dimension Torque dimension(u"N*m")
-@derived_dimension Moment dimension(u"N*m")
-@derived_dimension LinearForce dimension(u"N/m")
-@derived_dimension Pascal dimension(u"Pa")
-@derived_dimension ElasticModulus dimension(u"GPa")
-@derived_dimension ShearModulus dimension(u"GPa")
-@derived_dimension MomentOfInertia dimension(u"m^4")
-@derived_dimension PolarMomentOfInertia dimension(u"m^4")
-@derived_dimension Density dimension(u"kg/m^3")
-# @unit deg "deg" Degree 360/2*pi false
-Angle{T} = Union{Quantity{T,NoDims,typeof(u"rad")}, Quantity{T,NoDims,typeof(u"°")}} where T
+# LinearForce: force per unit length, N/m; NewtonPerMeter is defined by UnitTypes under AbstractLinearStiffness
+const LinearForce = AbstractLinearStiffness
+const AbstractLinearForce = AbstractLinearStiffness
 
-#introduce a strictly-positive Real? then make unions for Radius, Length, ..?
+# MomentOfInertia: second moment of area, m^4; Meter4 is defined by UnitTypes under AbstractSecondMomentOfArea
+const MomentOfInertia = AbstractSecondMomentOfArea
+const AbstractMomentOfInertia = AbstractSecondMomentOfArea
 
-# Imperial
+# PolarMomentOfInertia shares the same dimension as MomentOfInertia
+const PolarMomentOfInertia = AbstractSecondMomentOfArea
+
+# abs for AbstractMeasure types (not provided by UnitTypes)
+Base.abs(x::T) where T<:AbstractMeasure = x.value >= 0 ? x : -x

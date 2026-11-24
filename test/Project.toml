@@ -1,0 +1,8 @@
+name = "MechanicsTests"
+uuid = "a1f4b6b2-1234-5678-abcd-ef0123456789"
+
+[deps]
+Mechanics = "d980238a-42cd-4560-857f-f5458fd6ce3b"
+TestItemRunner = "f8b46487-2199-4994-9208-9a1283c18c0a"
+TestItems = "1c621080-faea-4a02-84b6-bbd5e436b8fe"
+UnitTypes = "b0895f2b-ad30-48b9-9e38-efbd1231cd91"

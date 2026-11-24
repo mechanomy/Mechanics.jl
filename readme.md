@@ -5,8 +5,12 @@ The goal of this module is to make mechanics methods easier to use in engineerin
 'Ease' has a number of aspects which influence the design of this module:
 * functions should be literal and descriptive, to aid discovery, use, recall, and later readers
 * arguments should be specifically typed, with preference given to keyword arguments
-* theoretical assumptions are included as tests
-<!--* symbolics are first-class; every equation has a symbolic analogue -->
+* theoretical assumptions included as tests
+* symbolics are first-class; every equation has a symbolic analogue
+
+The ultimate goal is to be able to communicate the same information as the reference text in a way that is immediately present and useful to the engineer, such that the text is no longer necessary. 
+This is not currently possible in the language or editors, but where these are lacking function comments at least gesture in the direction.
+<!-- see our motivating case study for more -->
 
 See also our [Materials.jl](https://github.com/mechanomy/Materials.jl) package.
 
@@ -38,4 +42,4 @@ As stated in the [license](license.md), no warranty, certification, suitability 
 It remains the duty of any user to ensure that any analysis they perform is correct.
 
 ## Copyright
-Copyright (c) 2022 Mechanomy LLC
+Copyright (c) 2026 Mechanomy LLC

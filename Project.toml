@@ -3,15 +3,12 @@ uuid = "d980238a-42cd-4560-857f-f5458fd6ce3b"
 authors = ["Mechanomy LLC"]
 version = "0.1.0"
 
+[workspace]
+projects = ["test"]
+
 [deps]
-RecipesBase = "3cdcf5f2-1ef4-517c-9805-6587b60abb01"
-Unitful = "1986cc42-f94f-5a68-af5c-568840ba703d"
+UnitTypes = "b0895f2b-ad30-48b9-9e38-efbd1231cd91"
 
 [compat]
+UnitTypes = "3"
 julia = "1"
-
-[extras]
-Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
-
-[targets]
-test = ["Test"]

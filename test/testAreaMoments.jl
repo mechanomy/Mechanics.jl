@@ -1,9 +1,14 @@
 
-
-@testset "Circle area moment of inertia" begin
-  @test Mechanics.areaMomentCircle(1m) == (1m)^4*π/4
+@testitem "areaMomentCircle" begin
+  using Mechanics
+  using UnitTypes
+  @test Mechanics.areaMomentCircle(Meter(1)) ≈ Meter4(π/4)
+  @test Mechanics.areaMomentCircle(MilliMeter(1000)) ≈ Meter4(π/4)
 end
 
-@testset "Annulus area moment of inertia" begin
-  @test Mechanics.areaMomentAnnulus(1m, 2m) == (2m)^4*π/4 - (1m)^4*π/4
+@testitem "areaMomentAnnulus" begin
+  using Mechanics
+  using UnitTypes
+  @test Mechanics.areaMomentAnnulus(Meter(1), Meter(2)) ≈ Meter4((2.0)^4*π/4 - (1.0)^4*π/4)
+  @test Mechanics.areaMomentAnnulus(Meter(2), Meter(1)) ≈ Meter4((2.0)^4*π/4 - (1.0)^4*π/4)
 end
