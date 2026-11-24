@@ -29,7 +29,7 @@ For a triangle with equal sides `c` and third side `a`:
   `c` = length of the equal sides
 Returns shape factor K in m^4.
 """
-function shapeFactorTriangleIsoceles(a::AbstractLength, b::AbstractLength, c::AbstractLength) :: AbstractSecondMomentOfArea
+function shapeFactorTriangleIsoceles(a::AbstractLength, b::AbstractLength, c::AbstractLength) :: AbstractAreaMomentOfInertia
   av = toBaseFloat(a)
   bv = toBaseFloat(b)
   if 2/3 < av/bv && av/bv < sqrt(3)
@@ -51,10 +51,10 @@ struct TorquedCircularBar
   T::AbstractTorque
   L::AbstractLength
   r::AbstractLength
-  J::AbstractSecondMomentOfArea
+  J::AbstractAreaMomentOfInertia
   G::AbstractPressure
 end
-TorquedCircularBar(; T::AbstractTorque, L::AbstractLength, r::AbstractLength, J::AbstractSecondMomentOfArea, G::AbstractPressure) = TorquedCircularBar(T, L, r, J, G)
+TorquedCircularBar(; T::AbstractTorque, L::AbstractLength, r::AbstractLength, J::AbstractAreaMomentOfInertia, G::AbstractPressure) = TorquedCircularBar(T, L, r, J, G)
 
 function angle(bar::TorquedCircularBar) :: AbstractAngle
   return Radian(toBaseFloat(bar.T) * toBaseFloat(bar.L) / (toBaseFloat(bar.J) * toBaseFloat(bar.G)))

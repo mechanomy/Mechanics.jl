@@ -13,12 +13,12 @@ returning the deflection perpendicular to the beam length, or parallel to the di
 > Cook&Young figure 1.7-1
 > Beer&Johnson Appendix D, by superposition
 """
-function fixedFreeTipDeflection(; P::AbstractForce=Newton(0), M::AbstractTorque=NewtonMeter(0), q::AbstractLinearStiffness=NewtonPerMeter(0), L::AbstractLength, E::AbstractPressure, I::AbstractSecondMomentOfArea) :: AbstractLength
+function fixedFreeTipDeflection(; P::AbstractForce=Newton(0), M::AbstractTorque=NewtonMeter(0), q::AbstractLinearStiffness=NewtonPerMeter(0), L::AbstractLength, E::AbstractPressure, I::AbstractAreaMomentOfInertia) :: AbstractLength
   return M*L^2/(2*E*I) + P*L^3/(3*E*I) + q*L^4/(8*E*I)
 end
 
 
-function fixedFreeDeflection(; P::AbstractForce=Newton(0), M::AbstractTorque=NewtonMeter(0), q::AbstractLinearStiffness=NewtonPerMeter(0), L::AbstractLength, xP::AbstractLength=L, E::AbstractPressure, I::AbstractSecondMomentOfArea) :: AbstractLength
+function fixedFreeDeflection(; P::AbstractForce=Newton(0), M::AbstractTorque=NewtonMeter(0), q::AbstractLinearStiffness=NewtonPerMeter(0), L::AbstractLength, xP::AbstractLength=L, E::AbstractPressure, I::AbstractAreaMomentOfInertia) :: AbstractLength
   return fixedFreeDeflectionForce(E=E, I=I, P=P, L=L, xP=xP)
 end
 
@@ -28,7 +28,7 @@ Returns the deflection of the deflected tip from horizontal from applying `P` at
 `P` is assumed to be applied perpendicular to the beam length `L`.
 > Beer&Johnson Appendix D.3
 """
-function fixedFreeDeflectionForce(; E::AbstractPressure, I::AbstractSecondMomentOfArea, P::AbstractForce=Newton(0), L::AbstractLength, xP::AbstractLength=L) :: AbstractLength
+function fixedFreeDeflectionForce(; E::AbstractPressure, I::AbstractAreaMomentOfInertia, P::AbstractForce=Newton(0), L::AbstractLength, xP::AbstractLength=L) :: AbstractLength
   ret = Meter(toBaseFloat(P/(6*E*I) * (xP^3 - 3*L*xP^2)))
   if abs(toBaseFloat(ret)) > toBaseFloat(L)*0.1
     @warn "Beam deflection is large ($ret), likely exceeds the assumptions of an Euler beam."
@@ -42,7 +42,7 @@ Returns the angle of the deflected tip from horizontal from applying `P` at `xP`
 `P` is assumed to be applied perpendicular to the beam length `L`.
 > Beer&Johnson Appendix D.3
 """
-function fixedFreeAngleForce(; E::AbstractPressure, I::AbstractSecondMomentOfArea, P::AbstractForce=Newton(0), L::AbstractLength, xP::AbstractLength=L) :: AbstractAngle
+function fixedFreeAngleForce(; E::AbstractPressure, I::AbstractAreaMomentOfInertia, P::AbstractForce=Newton(0), L::AbstractLength, xP::AbstractLength=L) :: AbstractAngle
   ret = Radian(toBaseFloat(P/(2*E*I) * (xP^2 - 2*xP*L)))
   if abs(ret) > Degree(10)
     @warn "Beam deflection angle is large ($ret), likely exceeds the assumptions of an Euler beam."
@@ -54,7 +54,7 @@ end
 `fixedFreeDeflectionMoment(; E::ElasticModulus, I::MomentOfInertia, M::Torque=NewtonMeter(0), L::Length, x::Length=L) :: Length`
 > Beer&Johnson Appendix D.3
 """
-function fixedFreeDeflectionMoment(; E::AbstractPressure, I::AbstractSecondMomentOfArea, M::AbstractTorque=NewtonMeter(0), L::AbstractLength, x::AbstractLength=L) :: AbstractLength
+function fixedFreeDeflectionMoment(; E::AbstractPressure, I::AbstractAreaMomentOfInertia, M::AbstractTorque=NewtonMeter(0), L::AbstractLength, x::AbstractLength=L) :: AbstractLength
   ret = -M/(2*E*I) * x^2
   if abs(ret) > L*0.1
     @warn "Beam deflection is large ($ret), likely exceeds the assumptions of an Euler beam."
@@ -66,7 +66,7 @@ end
 `fixedFreeAngleMoment(; E::ElasticModulus, I::MomentOfInertia, M::Torque=NewtonMeter(0), L::Length, x::Length=L) :: Angle`
 > Beer&Johnson Appendix D.3
 """
-function fixedFreeAngleMoment(; E::AbstractPressure, I::AbstractSecondMomentOfArea, M::AbstractTorque=NewtonMeter(0), L::AbstractLength, x::AbstractLength=L) :: AbstractAngle
+function fixedFreeAngleMoment(; E::AbstractPressure, I::AbstractAreaMomentOfInertia, M::AbstractTorque=NewtonMeter(0), L::AbstractLength, x::AbstractLength=L) :: AbstractAngle
   ret = Radian(toBaseFloat(-M/(E*I) * x))
   if abs(ret) > Degree(10)
     @warn "Beam deflection angle is large ($ret), likely exceeds the assumptions of an Euler beam."

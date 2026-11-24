@@ -12,12 +12,12 @@ const ShearModulus = AbstractPressure
 const LinearForce = AbstractLinearStiffness
 const AbstractLinearForce = AbstractLinearStiffness
 
-# MomentOfInertia: second moment of area, m^4; Meter4 is defined by UnitTypes under AbstractSecondMomentOfArea
-const MomentOfInertia = AbstractSecondMomentOfArea
-const AbstractMomentOfInertia = AbstractSecondMomentOfArea
+# MomentOfInertia: second moment of area, m^4; Meter4 is defined by UnitTypes under AbstractAreaMomentOfInertia
+const MomentOfInertia = AbstractAreaMomentOfInertia
+const AbstractMomentOfInertia = AbstractAreaMomentOfInertia
 
 # PolarMomentOfInertia shares the same dimension as MomentOfInertia
-const PolarMomentOfInertia = AbstractSecondMomentOfArea
+const PolarMomentOfInertia = AbstractAreaMomentOfInertia
 
 # abs for AbstractMeasure types (not provided by UnitTypes)
 Base.abs(x::T) where T<:AbstractMeasure = x.value >= 0 ? x : -x
