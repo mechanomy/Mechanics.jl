@@ -55,3 +55,4 @@ Update Mechanics.jl to UnitTypes v3.0.1 and add tests in TestItems.jl style.
 - Full suite 90/90 passes
 - Before release: switch Project.toml/Manifest back to a registered UnitTypes containing these measures and raise the compat bound
 - Follow UnitTypes 0ce24d1: Meter4's abstract type is now AbstractAreaMomentOfInertia (was AbstractSecondMomentOfArea); Mechanics aliases updated; no rpm usage in Mechanics; 90/90 pass
+- Remove Base.abs for measures from src/Units.jl: UnitTypes b32a710 now defines it, and the duplicate broke precompilation (method overwriting); 90/90 pass

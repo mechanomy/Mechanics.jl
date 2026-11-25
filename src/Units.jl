@@ -18,6 +18,3 @@ const AbstractMomentOfInertia = AbstractAreaMomentOfInertia
 
 # PolarMomentOfInertia shares the same dimension as MomentOfInertia
 const PolarMomentOfInertia = AbstractAreaMomentOfInertia
-
-# abs for AbstractMeasure types (not provided by UnitTypes)
-Base.abs(x::T) where T<:AbstractMeasure = x.value >= 0 ? x : -x
